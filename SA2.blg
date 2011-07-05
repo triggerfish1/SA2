@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: SA2.aux
+The style file: plaindin.bst
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: books.bib
+Warning--I didn't find a database entry for "gravemeier"
+You've used 1 entry,
+            4335 wiz_defined-function locations,
+            842 strings with 6101 characters,
+and the built_in function-call counts, 694 in all, are:
+= -- 71
+> -- 13
+< -- 24
++ -- 27
+- -- 4
+* -- 45
+:= -- 117
+add.period$ -- 2
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 17
+empty$ -- 50
+format.name$ -- 8
+if$ -- 137
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 6
+newline$ -- 17
+num.names$ -- 2
+pop$ -- 6
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 35
+stack$ -- 0
+substring$ -- 59
+swap$ -- 5
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 5
+width$ -- 2
+write$ -- 23
+(There was 1 warning)

@@ -1,0 +1,311 @@
+\input{settings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%\setlength{\parindent}{0cm}
+
+\pdfminorversion 6
+\author{Markus Sons}
+
+\title{Implementierung eines Schnittalgorithmus für die angereicherte Finite
+Elemente Methode für Zwei-Phasenströmungen}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+\listoffigures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Headings
+\pagestyle{fancy}
+\fancyhead{}  \fancyfoot{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\space\space #1}}
+\fancyhf{}
+\fancyhead[RO]{\thepage}
+\fancyhead[LO]{\rm \rightmark}
+\fancyfoot[C]{\thepage}
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Einleitung}
+% FEM hat Vorteile gegenüber FVM (Fehlerabschätzung)
+% Verbrennung / Mehrphasenströmung spezielle Anforderung -> Sprung/knick in p und u
+% Entweder sehr fein auflösen am Interface, oder neue Ansatzfunktionen (XFEM)
+% Gaußintegration bei Sprung/Knick nicht möglich -> Schnittalgorithmus
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Grundlagen}
+Das Berechnungsgebiet $\Omega$ ist dreidimensional und wird begrenzt durch den Rand $\Gamma = \partial\Omega$. Der Rand teilt sich auf in einen Dirichletrand $\Gamma_g$ und einem Neumannrand $\Gamma_h$. Der Neumann-Rand tritt im Folgenden nur als sogenannte ``do-nothing''-Bedingung auf.\\
+
+Da sich die Arbeit mit Problemen der Zweiphasenströmungen beschäftigt, muss das Gebiet in zwei Teilgebiete $\Omega_1$ und $\Omega_2$ aufgeteilt werden. Ihre gemeinsame Grenzfläche, im Folgenden auch Interface genannt, wird mit $\Gamma_d$ bezeichnet.\\
+
+Abbildung \ref{fig:domain} stellt das Berechnungsgebiet dar und fasst alle in diesem Zusammenhang verwendeten  Begriffe zusammen.
+\begin{figure}[htp]
+ \centering
+ \def\svgwidth{0.7\textwidth}
+ \input{pics/sketches/domain}
+\caption{Skizze der Domäne nach \cite{Fries}}
+\label{fig:domain}
+\end{figure} 
+
+\section{Navier-Stokes Gleichungen}
+Das Strömungsfeld wird durch die Navier-Stokes-Gleichungen beschrieben, die sich aus der Masse- und Impulserhaltung ergeben. Die Herleitung soll Beispielhaft für die Massenerhaltung gezeigt werden.\\
+
+\subsection{Massenerhaltung}
+
+Die Massenerhaltung kann geschrieben werden als
+
+\begin{equation}
+   \DDt{M} =  \Dt \int_V \rho \id V = 0
+\end{equation}
+
+mit der Masse $M$ im Volumen $V$. Unter Anwendung des Reynolds'schen Transporttheorems und der Oberfläche $S$ des Volumens $V$ folgt daraus
+
+\begin{equation}
+    \int_V \partt{\rho} \id V + \int_S\rho(\vect{u} \cdot \vect{n})\id S = 0
+\end{equation}
+
+Durch Anwendung des Divergenztheorems können beide Terme in ein Volumenintegral zusammengefasst werden zur integralen Massenerhaltungsgleichung:
+
+\begin{equation}
+	\int_V\bigg[\partt{\rho} + \nabla \cdot (\rho\vect{u})\bigg] \id V =0
+\end{equation}
+
+Da diese Gleichung für jedes beliebige Volumen gelten muss, muss es auch
+differentiell gelten:
+
+\begin{equation}
+	\partt{\rho} + \nabla \cdot (\rho\vect{u}) = 0
+\end{equation}
+
+Für inkompressible Strömungen (\(\mathrm{d}\rho = 0\)) vereinfacht sich diese Gleichung zu
+\begin{equation}
+	\nabla\cdot\vect{u} =0
+\end{equation}
+
+
+\subsection{Impulserhaltung}
+Aus der Impulserhaltung folgt die differentielle Impulserhaltungsgleichung für inkompressible Strömungen nach der Herleitung in \cite{gravemeier} zu
+
+\begin{equation}
+	\partt{\vect{u}} + \vect{u}\cdot\nabla\vect{u}=\frac{1}{\rho_i}\nabla\cdot\tens{\sigma}+\vect{f}.
+\end{equation}
+
+Index $i$ unterscheidet die Größen des jeweiligen Teilgebietes. Diese Aufteilung ist nötig, da sich im Allgemeinen die Dichte $\rho$ und die dynamische Viskosität $\mu$ beider Phasen voneinander unterscheiden.
+
+\(\tens{\sigma}\) ist der Cauchy'sche Spannungstensor und muss durch eine Konstitutivgleichung mit den Feldgrößen verknüpft werden. Im vorliegenden Fall lautet sie
+
+\begin{equation}
+	\tens{\sigma} = -p\tens{I} + 2\mu_i\tens{\epsilon}(\vect{u}),
+\end{equation}
+mit \(\tens{\epsilon}(\vect{u})
+=\frac{1}{2}[\nabla\vect{u} + (\nabla\vect{u})^T]\).
+
+\subsection{Rand- und Anfangswertbedingungen}
+Für eine vollständige Problemformulierung fehlen noch die Anfangs- und Randbedingungen. Da bei den gerechneten Beispielen keine Neumann-Randbedingungen auftreten, entspricht $\Gamma$ einem reinen Dirichlet-Rand mit dem vorgeschriebenen Geschwindigkeitsvektor $\vect{g}$:
+\begin{equation}
+ \vect{u} = \vect{g} \auf \Gamma \times [0,T]
+\end{equation}
+Die Anfangswertbedingung kann geschrieben werden als
+\begin{equation}
+ \vect{u}(\vect{x},0) = \vect{u}_0(\vect{x}) \auf \Omega,
+\end{equation}
+wobei $\vect{u}_0(\vect{x})$ ein divergenzfreies Geschwindigkeitsfeld sein muss, um die Massenerhaltung zu erfüllen.
+
+
+\subsection{Besonderheiten der Zweiphasenströmung}
+\label{sec:twophaseflow}
+% Besonderheiten der Zweiphasenströmung (-> warum XFEM?)
+Die beiden Phasen sind weder ineinander löslich noch mischbar. Eine mögliche Oberflächenspannung zwischen den Phasen wird im Rahmen dieser Arbeit nicht betrachtet.\\
+
+Am Interface zwischen den Phasen muss die Schubspannung in beiden Gebieten gleich sein, also $\tau_1 = \tau_2$. Im vorliegenden Fall wird mit dem Modell der Newtonschen Flüssigkeiten gearbeitet, weshalb gilt: 
+\[\tau = \eta_i\cdot\dd{v}{y}\]
+wenn $y$ die Interface-normale Richtung und $v$ die Geschwindigkeitskomponente in $y$-Richtung ist. Zusammen folgt daraus:
+\[\eta_1\cdot\dd{v}{y}\biggr|_{\Omega_1} = \eta_2\cdot\dd{v}{y}\biggr|_{\Omega_2}\]
+
+Da sich der Geschwindigkeitsgradient über das Interface ändert, entsteht an dieser Stelle ein Knick im Geschwindigkeitsverlauf. Da sich das Interface im Allgemeinen innerhalb eines Elementes befindet, lässt sich dieser Knick mit den normalen Ansatzfunktionen der FE-Methode nicht darstellen. Deshalb beschäftigen wir uns in Kapitel \ref{sec:xfem} mit erweiterten Ansatzfunktionen, die in dieser Arbeit Verwendung finden.
+
+\section{Level-Set-Gleichung}
+Zur Beschreibung des Interfaces kann entweder eine Interface Tracking- oder eine Interface Capturing-Methode verwendet werden.
+
+Bei der Interface-Tracking-Methode wird das Interface explizit durch die
+Vernetzung beschrieben, das heißt das Netz wird mit dem Interface weiterbewegt. Ein Problem dieser Methode ist, dass Topologie-Änderungen wie z.B. das Rekombinieren von zwei Blasen zu einer Größeren nicht dargestellt werden können.\\
+
+Im vorliegenden Fall wird eine Interface-Capturing-Methode genutzt. Bei dieser wird das Interface implizit durch eine zusätzliche Feldvariable ausgedrückt. Die Änderung des Feldes unterliegt einer Konvektionsgleichung. Diese Methode lässt jegliche Art von Topologie-Änderungen zu.\\
+
+In dieser Arbeit kommt die Level-Set-Methode zum Einsatz. Sie gehört zu
+der Klasse der Interface-Capturing-Methoden mit der Feldvariablen \(\phi\). Das Interface befindet sich dort wo \(\phi = 0\) gilt, es kann also als Isolinie des \(\phi\)-Feldes aufgefasst werden.\\
+
+Die Konvektionsgleichung, mit der das Interface transportiert wird, lautet
+
+\begin{equation}
+\partt{\phi} +  \vect u \cdot \nabla\phi = 0,
+\end{equation}
+außerdem soll die Signed-Distance-Eigenschaft
+\begin{equation}
+ \phi(\vect{x}) = \pm \min_{\vect{x}_d\in\Gamma_d}{||\vect{x}-\vect{x}_d||}, \quad \forall\vect{x} \in \Omega
+\end{equation} 
+erfüllt werden, sodass an jedem Punkt $\vect{x}$ in $\Omega$ der Wert $\phi(\vect{x})$ den Abstand zum Interface repräsentiert. Das Vorzeichen richtet sich nach der jeweiligen Subdomäne in der $\vect{x}$ liegt.
+
+Da die Transportgleichung der Level-Set-Funktion diese Eigenschaft nicht aufrechterhält, muss in regelmäßigen Abständen reinitialisiert werden. Dabei wird über eine Funktion der Abstand von jedem Punkt in $\Omega$ der Abstand zum Interface berechnet. Zu beachten ist, dass die Funktion sehr viel Rechenzeit in Anspruch nimmt.
+
+\section{Diskretisierung}
+
+
+%
+%
+\subsection{Standard-Galerkin FEM}
+
+%
+%
+\subsection{eXtended Finite Element Method}
+\label{sec:xfem}
+\subsection{Zeitintegration}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Schnittalgorithmus}
+
+In BACI sind bereits zwei verschiedene Schnittalgorithmen implementiert. Der
+gewünschte Algorithmus kann über den Parameter 
+
+\section{Vorhandene Algorithmen}
+\subsection{Tetgen}
+\subsection{Hexahedra}
+
+\section{Implementierter Algorithmus}
+Da das Hex8-Element mit linearen Formfunktionen beschrieben
+wird, kann das $\phi$-Feld an jeder Kante höchstens eine Nullstelle und
+damit maximal einen Schnittpunkt haben.
+Beim Schnitt des Interfaces mit einem Hex8-Element müssen trotzdem viele
+Schnittfälle unterscheiden werden. \\
+
+Die vielen entstehenden Schnittfälle lassen sich umgehen, indem das Hex8-Element zunächst in sechs Tetraeder-Zellen zerlegt wird und anschließend die einzelnen Tetraeder-Zellen mit dem Interface geschnitten werden. Hierbei reicht die Unterscheidung von %TODO Fallzahl einfügen
+Fällen.
+
+\subsection{Zerlegung in Tetraeder}
+Es gibt mehrere Möglichkeiten einen Quader in Tetraeder zu zerlegen. Dabei entstehen entweder fünf oder sechs Tetraeder, wenn die Tetraeder nur mit den schon vorhandenen acht Knotenpunkten gebildet werden sollen.\\
+
+Da, wie bei den Ergebnissen besprochen wird, der Schnittalgorithmus anscheinend zu einer Asymmetrie des Ergebnises führen kann, ist es von Vorteil die Zerlegung möglichst symmetrisch durchzuführen. Gerade für die quasi-2D Probleme ist es wünschenswert, dass der Schnitt auf den Flächen, die auf der Tiefenachse senkrecht stehen, jeweils gleich ist.\\
+
+Es gibt drei Zerlegungsfälle, die diese Anforderungen erfüllen. Sie können durch 90\textdegree-Drehungen ineinander übergeführt werden. Die drei Fälle sind in Abbildung \ref{fig:cases} dargestellt. Für die Konstruktion der Tetraeder muss jede Seitenfläche in zwei Dreiecke geteilt werden. Durch die Ausrichtung der Diagonalen auf jeder Fläche sind die Schnittfälle eindeutig definiert.\\
+
+\begin{figure}[ht]
+\centering
+\subfloat[Fall 1]{\includegraphics[width=0.25\textwidth]{pics/sketches/decomp/case1}}
+\qquad
+\subfloat[Fall 2]{\includegraphics[width=0.25\textwidth]{pics/sketches/decomp/case2}}
+\qquad
+\subfloat[Fall 3]{\includegraphics[width=0.25\textwidth]{pics/sketches/decomp/case3}}
+\caption{Zerlegungsmöglichkeiten}
+\label{fig:cases}
+\end{figure}
+
+Die Zerlegung ist in Abbildung \ref{fig:decomp} beispielhaft für \textbf{Fall 2} dargestellt: Zunächst wird der Quader in zwei Dreiecksprismen zerlegt. Anschließend können beide Prismen wie dargestellt in je drei Tetraeder aufgeteilt werden.
+
+
+\begin{figure}[ht]
+\centering
+\subfloat[Zerlegung in zwei Prismen]{\includegraphics[height=4cm]{pics/sketches/decomp/decomposition1}}
+\qquad
+%\includegraphics[height=4cm]{pics/sketches/decomp/decomposition3}
+\subfloat[Hinteres Prisma in Tetraeder und Pyramide zerlegt]{\includegraphics[height=4cm]{pics/sketches/decomp/decomposition5}}
+\\
+\subfloat[Pyramide in weitere zwei Tetraeder zerlegt]{\includegraphics[height=4cm]{pics/sketches/decomp/decomposition6}}
+\caption{Zerlegung in sechs Tetraeder}
+\label{fig:decomp}
+\end{figure}
+
+\subsection{Schnittfälle}
+Bei dem Schnitt des Tetraeders mit dem Interface werden weitere Tetraeder-Integrationszellen sowie am Interface Flächenintegrationszellen (Dreiecke) erzeugt. Zunächst werden die Schnittpunkte auf allen Kanten des Tetraeders berechnet. Wenn das Interface genau durch einen Knoten des Tetraeders verläuft, wird dies nicht als Schnittpunkt gezählt. Bis auf den Fall mit vier Schnittpunkten wird jedesmal genau eine Flächenintegrationszelle gespeichert, da der Schnitt immer eine dreieckige Fläche erzeugt. Über die Anzahl der Schnittpunkte lässt sich der Schnitt in folgende Fälle aufgliedern:
+
+\paragraph{kein Schnittpunkt (Abbildung \ref{fig:cut0})}
+Dieser Fall entspricht einer Berührung des Interfaces mit dem Tetraeder. Wenn das Element berührt wird, das heißt das Interface liegt auf einer der Seitenflächen des Quaders, wird die Zelle nicht an den Schnittalgorithmus weitergegeben. Daher kann dieser Fall nur auftreten, wenn die innere Fläche des Tetraeders berührt wird. Der Algorithmus erzeugt hier nur eine Flächenintegrationszelle.
+
+\paragraph{1 Schnittpunkt (Abbildung \ref{fig:cut1})}
+In diesem Fall geht das Interface durch zwei Knotenpunkte hindurch und teilt das Tetraeder in zwei Tetraeder.
+
+\paragraph{2 Schnittpunkte (Abbildung \ref{fig:cut2})}
+Das Interface zerlegt das Tetraeder in ein Tetraeder und eine Pyramide. Die Pyramide kann durch Teilung der viereckigen Grundfläche in zwei Tetraeder zerlegt werden. Hierbei gibt es zwei Möglichkeiten, der Algorithmus richtet sich nach der Knotennummerierung.
+
+\paragraph{3 Schnittpunkte (Abbildung \ref{fig:cut3})} 
+Zerlegung des Tetraeders in ein Tetraeder und ein Dreiecksprisma. Das Prisma kann wie im vorigen Kapitel beschrieben in weitere drei Tetraeder zerlegt werden. Es entstehen vier Tetraeder und eine Flächenintegrationszelle.
+
+\paragraph{4 Schnittpunkte (Abbildung \ref{fig:cut4})}
+Der Schnitt mit dem Interface ergibt zwei Dreiecksprismen, die wiederum in jeweils drei Tetraeder zerlegt werden. Es resultieren sechs Tetraeder und aufgrund der viereckigen Schnittfläche zwei Flächenintegrationszellen. Alternativ könnte auch ein Viereckselement (quad4) gespeichert werden.
+
+
+\begin{figure}[ht]
+\centering
+\subfloat[kein Schnittpunkt]{\label{fig:cut0}\includegraphics[width=0.2\textwidth]{pics/sketches/decomp/cut5}}
+\qquad
+\subfloat[1 Schnittpunkt]{\label{fig:cut1}\includegraphics[width=0.2\textwidth]{pics/sketches/decomp/cut4}}
+\qquad
+\subfloat[2 Schnittpunkte]{\label{fig:cut2}\includegraphics[width=0.2\textwidth]{pics/sketches/decomp/cut3}}
+\caption{Schnittfälle I}
+\label{fig:cuts1}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\subfloat[3 Schnittpunkte]{\label{fig:cut3}\includegraphics[width=0.2\textwidth]{pics/sketches/decomp/cut1}}
+\qquad
+\subfloat[4 Schnittpunkte]{\label{fig:cut4}\includegraphics[width=0.2\textwidth]{pics/sketches/decomp/cut2}}
+\caption{Schnittfälle II}
+\label{fig:cuts2}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Ergebnisse}
+\section{Zalesaks-Disk}
+\subsection{Problemstellung}
+
+\def\svgwidth{0.4\textwidth}
+\begin{figure}[ht]
+\centering
+\input{pics/sketches/zalesaks.tex}\caption{Skizze des Zalesaks-Disk-Problems}
+\end{figure} 
+
+\subsection{Ergebnisse}
+\subsubsection{Massenverlust}
+\subsubsection{Geometrieerhaltung}
+
+\section{Dammbruch}
+\subsection{Problemstellung}
+
+\def\svgwidth{0.6\textwidth}
+\begin{figure}[ht]
+\centering
+ \input{pics/sketches/twophaseflow.tex} \caption{Skizze des Dammbruch-Problems}
+\end{figure}
+
+\subsection{Ergebnisse}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Ausblick}
+
+\appendix
+
+\chapter{Code}
+\chapter{Bilder}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\bibliographystyle{plaindin}
+\bibliography{books}
+
+\end{document}
+

@@ -1,0 +1,66 @@
+%!TEX TS-program =  pdflatex
+\documentclass[a4paper,12pt,toc=listof]{scrreprt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% text encoding
+%
+
+\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
+\usepackage{scrhack}
+\usepackage[T1]{fontenc}
+%\usepackage{ngerman,a4wide}
+\usepackage[ngerman]{babel}
+\usepackage{longtable}
+\usepackage{color,listings,multicol}
+\usepackage{float}
+\usepackage[format=hang]{caption}
+%usepackage[caption = false,format=hang]{subfig}
+\captionsetup[subfloat]{justification=RaggedRight}
+\usepackage[format=hang]{subfig}
+%\captionsetup{format=hang}
+\usepackage[numbers]{natbib}
+\usepackage[intlimits]{amsmath}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{pstricks}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{textcomp}
+
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{german}
+
+%\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\vect}[1]{\vec{#1}}
+
+\newcommand{\mphi}{\(\phi\)}
+\newcommand{\m}[1]{\(#1\)}
+
+\newcommand{\ddt}[1]{\frac{\mathrm{d} #1}{\mathrm{d} t}}
+\newcommand{\dd}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\dt}{\frac{\mathrm{d}}{\mathrm{d} t}}
+\newcommand{\DDt}[1]{\frac{\mathrm{D} #1}{\mathrm{D} t}}
+\newcommand{\Dt}{\frac{\mathrm{D}}{\mathrm{D} t}}
+\newcommand{\id}{\mathrm{d}}
+
+\newcommand{\auf}{\quad\text{auf}\quad}
+
+\newcommand{\partt}[1]{\frac{\partial #1}{\partial \mathrm{t}}}
+
+\newcommand{\tens}[1]{\undertilde#1}
+
+\newcommand{\qu}[1]{"`#1"'}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+
+
+%für eps-Graphiken
+%\DeclareGraphicsExtensions{.png,.pdf,.jpg,.mps,.eps}
+%\DeclareGraphicsRule{.eps}{mps}{*}{}
+%\setlength{\headheight}{15pt}
+%\bibliographystyle{natdin}  % put at beginning of document
+%\usepackage{epspdfconversion}
+%\usepackage{hyperref}
