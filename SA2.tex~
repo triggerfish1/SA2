@@ -141,7 +141,7 @@ Vernetzung beschrieben, das heißt das Netz wird mit dem Interface weiterbewegt.
 
 Im vorliegenden Fall wird eine Interface-Capturing-Methode genutzt. Bei dieser wird das Interface implizit durch eine zusätzliche Feldvariable ausgedrückt. Die Änderung des Feldes unterliegt einer Konvektionsgleichung. Diese Methode lässt jegliche Art von Topologie-Änderungen zu.\\
 
-Speziell kommt die Level-Set-Methode mit der Feldvariablen \(\phi\)zum Einsatz. Das Interface befindet sich dort bei \(\phi = 0\), es kann also als Isolinie des \(\phi\)-Feldes aufgefasst werden.\\
+Speziell kommt die Level-Set-Methode mit der Feldvariablen \(\phi\) zum Einsatz. Das Interface befindet sich dort bei \(\phi = 0\), es kann also als Isolinie des \(\phi\)-Feldes aufgefasst werden.\\
 
 Die Konvektionsgleichung, mit der das Interface transportiert wird, lautet
 
