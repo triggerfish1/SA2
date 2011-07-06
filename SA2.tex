@@ -141,8 +141,7 @@ Vernetzung beschrieben, das heißt das Netz wird mit dem Interface weiterbewegt.
 
 Im vorliegenden Fall wird eine Interface-Capturing-Methode genutzt. Bei dieser wird das Interface implizit durch eine zusätzliche Feldvariable ausgedrückt. Die Änderung des Feldes unterliegt einer Konvektionsgleichung. Diese Methode lässt jegliche Art von Topologie-Änderungen zu.\\
 
-In dieser Arbeit kommt die Level-Set-Methode zum Einsatz. Sie gehört zu
-der Klasse der Interface-Capturing-Methoden mit der Feldvariablen \(\phi\). Das Interface befindet sich dort wo \(\phi = 0\) gilt, es kann also als Isolinie des \(\phi\)-Feldes aufgefasst werden.\\
+Speziell kommt die Level-Set-Methode mit der Feldvariablen \(\phi\) zum Einsatz. Das Interface befindet sich dort bei \(\phi = 0\), es kann also als Isolinie des \(\phi\)-Feldes aufgefasst werden.\\
 
 Die Konvektionsgleichung, mit der das Interface transportiert wird, lautet
 
@@ -153,7 +152,7 @@ außerdem soll die Signed-Distance-Eigenschaft
 \begin{equation}
  \phi(\vect{x}) = \pm \min_{\vect{x}_d\in\Gamma_d}{||\vect{x}-\vect{x}_d||}, \quad \forall\vect{x} \in \Omega
 \end{equation} 
-erfüllt werden, sodass an jedem Punkt $\vect{x}$ in $\Omega$ der Wert $\phi(\vect{x})$ den Abstand zum Interface repräsentiert. Das Vorzeichen richtet sich nach der jeweiligen Subdomäne in der $\vect{x}$ liegt.
+erfüllt werden, sodass an jedem Punkt $\vect{x}$ in $\Omega$ der Wert $\phi(\vect{x})$ den Abstand zum Interface repräsentiert. Das Vorzeichen richtet sich nach der jeweiligen Subdomäne in der $\vect{x}$ liegt. Ein positives Vorzeichen repräsentiert dabei $\Omega^+$, ein negatives Vorzeichen $\Omega^-$.
 
 Da die Transportgleichung der Level-Set-Funktion diese Eigenschaft nicht aufrechterhält, muss in regelmäßigen Abständen reinitialisiert werden. Dabei wird über eine Funktion der Abstand von jedem Punkt in $\Omega$ der Abstand zum Interface berechnet. Zu beachten ist, dass die Funktion sehr viel Rechenzeit in Anspruch nimmt.
 
