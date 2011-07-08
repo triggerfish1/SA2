@@ -48,5 +48,6 @@
     \put(0.26114269,0.30911723){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\(\Omega_1\)}}}%
     \put(0.655903,0.64519695){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\(\Omega_2\)}}}%
     \put(-0.00212477,0.44771666){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\(\Gamma\)}}%
+    \put(0.58324946,0.3680873){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\(\Gamma_d\)}}}%
   \end{picture}%
 \endgroup

@@ -45,7 +45,7 @@ Elemente Methode für Zwei-Phasenströmungen}
 \chapter{Grundlagen}
 Das Berechnungsgebiet $\Omega$ ist dreidimensional und wird begrenzt durch den Rand $\Gamma = \partial\Omega$. Der Rand teilt sich auf in einen Dirichletrand $\Gamma_g$ und einem Neumannrand $\Gamma_h$. Der Neumann-Rand tritt im Folgenden nur als sogenannte ``do-nothing''-Bedingung auf.\\
 
-Da sich die Arbeit mit Problemen der Zweiphasenströmungen beschäftigt, muss das Gebiet in zwei Teilgebiete $\Omega_1$ und $\Omega_2$ aufgeteilt werden. Ihre gemeinsame Grenzfläche, im Folgenden auch Interface genannt, wird mit $\Gamma_d$ bezeichnet.\\
+Da sich die Arbeit mit Problemen der Zweiphasenströmungen beschäftigt, muss das Gebiet in zwei Teilgebiete $\Omega^+$ und $\Omega^-$ aufgeteilt werden. Ihre gemeinsame Grenzfläche, im Folgenden auch Interface genannt, wird mit $\Gamma_d$ bezeichnet.\\
 
 Abbildung \ref{fig:domain} stellt das Berechnungsgebiet dar und fasst alle in diesem Zusammenhang verwendeten  Begriffe zusammen.
 \begin{figure}[htp]
@@ -129,7 +129,7 @@ Die beiden Phasen sind weder ineinander löslich noch mischbar. Eine mögliche O
 Am Interface zwischen den Phasen muss die Schubspannung in beiden Gebieten gleich sein, also $\tau_1 = \tau_2$. Im vorliegenden Fall wird mit dem Modell der Newtonschen Flüssigkeiten gearbeitet, weshalb gilt: 
 \[\tau = \eta_i\cdot\dd{v}{y}\]
 wenn $y$ die Interface-normale Richtung und $v$ die Geschwindigkeitskomponente in $y$-Richtung ist. Zusammen folgt daraus:
-\[\eta_1\cdot\dd{v}{y}\biggr|_{\Omega_1} = \eta_2\cdot\dd{v}{y}\biggr|_{\Omega_2}\]
+\[\eta_1\cdot\dd{v}{y}\biggr|_{\Omega^+} = \eta_2\cdot\dd{v}{y}\biggr|_{\Omega^-}\]
 
 Da sich der Geschwindigkeitsgradient über das Interface ändert, entsteht an dieser Stelle ein Knick im Geschwindigkeitsverlauf. Da sich das Interface im Allgemeinen innerhalb eines Elementes befindet, lässt sich dieser Knick mit den normalen Ansatzfunktionen der FE-Methode nicht darstellen. Deshalb beschäftigen wir uns in Kapitel \ref{sec:xfem} mit erweiterten Ansatzfunktionen, die in dieser Arbeit Verwendung finden.
 
@@ -279,8 +279,14 @@ Der Schnitt mit dem Interface ergibt zwei Dreiecksprismen, die wiederum in jewei
 \subsubsection{Massenverlust}
 \subsubsection{Geometrieerhaltung}
 
+\section{Aufsteigende Blase}
+\section{Rayleigh-Taylor-Instabilität}
+
 \section{Dammbruch}
 \subsection{Problemstellung}
+Im Anfangszustand befindet sich eine Wassersäule($\Omega^+$) mit den Maßen $0{,}146\times0{,}292$ am linken Rand des sonst luftgefüllten($\Omega^-$) Gebietes. Das Gebiet hat die Abmaße $0{,}584\times0{,}292$. Die Materialparameter lauten: $\rho^+=\unit{1000}{\kilogram\per\cubic\meter}$, $\rho^-=\unit{1}{\kilogram\per\cubic\meter}$, $\mu^+ = \unit{$10^{-3}$}{\kilogram\per\meter\per\second}$ und $\mu^-= \unit{$10^{-5}$}{\kilogram\per\meter\per\second}$. Der Volumenkraftsvektor ist $\vect{f} = (0, \unit{-9,81}{\meter\per\squaren\second}, 0)^T$ Das verwendete Netz ist %TODO Netz.
+An allen Wänden gelten Slip\footnote{Alle bis auf die wandparallelen Geschwindigkeitskomponenten werden zu null gesetzt.}-Randbedingungen. Der Zeitbereich $t = [0..0{,}25s]$ ist in 1000 Zeitschritte unterteilt.
+
 
 \def\svgwidth{0.6\textwidth}
 \begin{figure}[ht]

@@ -42,20 +42,20 @@ ReadWrite=true
 
 [item:../SA2.tex]
 archive=true
-column=27
+column=93
 encoding=UTF-8
 highlight=LaTeX
-line=143
+line=286
 mode=LaTeX
 open=true
 order=1
 
 [item:../books.bib]
 archive=true
-column=8
+column=1
 encoding=UTF-8
 highlight=BibTeX
-line=12
+line=13
 mode=BibTeX
 open=true
 order=0
@@ -71,12 +71,12 @@ open=false
 order=-1
 
 [view-settings,view=0,item:../SA2.tex]
-CursorColumn=27
-CursorLine=143
+CursorColumn=93
+CursorLine=286
 
 [view-settings,view=0,item:../books.bib]
-CursorColumn=8
-CursorLine=12
+CursorColumn=1
+CursorLine=13
 
 [view-settings,view=0,item:sa2.kilepr]
 CursorColumn=0

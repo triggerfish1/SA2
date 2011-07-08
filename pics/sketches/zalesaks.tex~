@@ -44,7 +44,7 @@
   \makeatother
   \begin{picture}(1,1)%
     \put(0,0){\includegraphics[width=\unitlength]{pics/sketches/zalesaks.pdf}}%
-    \put(0.2764977,0.48387097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\Large$\Omega_1$}}}}%
-    \put(0.11520737,0.85253456){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\Large$\Omega_2$}}}}%
+    \put(0.2764977,0.48387097){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\Large$\Omega^+$}}}%
+    \put(0.11520737,0.85253456){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\Large$\Omeg^-$}}}%
   \end{picture}%
 \endgroup
