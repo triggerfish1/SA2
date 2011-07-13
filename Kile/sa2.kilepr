@@ -42,10 +42,10 @@ ReadWrite=true
 
 [item:../SA2.tex]
 archive=true
-column=93
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=286
+line=240
 mode=LaTeX
 open=true
 order=1
@@ -71,8 +71,8 @@ open=false
 order=-1
 
 [view-settings,view=0,item:../SA2.tex]
-CursorColumn=93
-CursorLine=286
+CursorColumn=0
+CursorLine=240
 
 [view-settings,view=0,item:../books.bib]
 CursorColumn=1

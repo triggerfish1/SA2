@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.7.4)  7 JUL 2011 20:32
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.7.4)  12 JUL 2011 18:14
 entering extended mode
  %&-line parsing enabled.
 **SA2.tex
@@ -933,25 +933,25 @@ Class scrreprt Info: You've told me to use the font selection of the element
 (scrreprt)            on input line 4.
 Class scrreprt Info: You've told me to use the font selection of the element
 (scrreprt)           `sectioning' that is an alias of element `disposition'
-(scrreprt)            on input line 15.
+(scrreprt)            on input line 18.
 Class scrreprt Info: You've told me to use the font selection of the element
 (scrreprt)           `sectioning' that is an alias of element `disposition'
-(scrreprt)            on input line 27.
-Class scrreprt Info: You've told me to use the font selection of the element
-(scrreprt)           `sectioning' that is an alias of element `disposition'
-(scrreprt)            on input line 38.
-Class scrreprt Info: You've told me to use the font selection of the element
-(scrreprt)           `sectioning' that is an alias of element `disposition'
-(scrreprt)            on input line 39.
+(scrreprt)            on input line 30.
  [2
 
 ]
 Class scrreprt Info: You've told me to use the font selection of the element
 (scrreprt)           `sectioning' that is an alias of element `disposition'
-(scrreprt)            on input line 40.
+(scrreprt)            on input line 41.
 Class scrreprt Info: You've told me to use the font selection of the element
 (scrreprt)           `sectioning' that is an alias of element `disposition'
-(scrreprt)            on input line 41.
+(scrreprt)            on input line 42.
+Class scrreprt Info: You've told me to use the font selection of the element
+(scrreprt)           `sectioning' that is an alias of element `disposition'
+(scrreprt)            on input line 43.
+Class scrreprt Info: You've told me to use the font selection of the element
+(scrreprt)           `sectioning' that is an alias of element `disposition'
+(scrreprt)            on input line 44.
 )
 \tf@toc=\write3
 \openout3 = `SA2.toc'.
@@ -1021,114 +1021,170 @@ Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
+
+LaTeX Warning: Reference `sec:grundlagen' on page 9 undefined on input line 163
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
+
+ []
+
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
+
+ []
+
+
+LaTeX Warning: Reference `' on page 10 undefined on input line 193.
+
+
+LaTeX Warning: Reference `' on page 10 undefined on input line 193.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--206
+
+ []
+
+[10]
+
+LaTeX Warning: Reference `' on page 11 undefined on input line 217.
+
+
+LaTeX Warning: Reference `' on page 11 undefined on input line 217.
+
+
+LaTeX Warning: Reference `' on page 11 undefined on input line 217.
+
+
+LaTeX Warning: Reference `' on page 11 undefined on input line 217.
+
+
+Package natbib Warning: Citation `rasthofer' on page 11 undefined on input line
+ 217.
+
+[11]
 Kapitel 3.
 
-Overfull \hbox (0.79507pt too wide) in paragraph at lines 176--178
+Overfull \hbox (0.79507pt too wide) in paragraph at lines 241--243
 \T1/cmr/m/n/12 In BA-CI sind be-reits zwei ver-schie-de-ne Schnit-tal-go-rith-m
 en im-ple-men-tiert. Der ge-wünsch-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--189
+Underfull \hbox (badness 10000) in paragraph at lines 249--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
-[10
+[12
 
-] <pics/sketches/decomp/case1.pdf, id=55, 54.28279pt x 70.3428pt>
+] <pics/sketches/decomp/case1.pdf, id=66, 54.28279pt x 70.3428pt>
 File: pics/sketches/decomp/case1.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/case1.pdf>
-<pics/sketches/decomp/case2.pdf, id=57, 54.28279pt x 70.3428pt>
+<pics/sketches/decomp/case2.pdf, id=68, 54.28279pt x 70.3428pt>
 File: pics/sketches/decomp/case2.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/case2.pdf>
-<pics/sketches/decomp/case3.pdf, id=59, 54.28279pt x 70.3428pt>
+<pics/sketches/decomp/case3.pdf, id=70, 54.28279pt x 70.3428pt>
 File: pics/sketches/decomp/case3.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/case3.pdf>
-<pics/sketches/decomp/decomposition1.pdf, id=61, 54.28279pt x 70.3428pt>
+<pics/sketches/decomp/decomposition1.pdf, id=72, 54.28279pt x 70.3428pt>
 File: pics/sketches/decomp/decomposition1.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/decomposition1.pdf>
-<pics/sketches/decomp/decomposition5.pdf, id=63, 85.59981pt x 69.53981pt>
+<pics/sketches/decomp/decomposition5.pdf, id=74, 85.59981pt x 69.53981pt>
 File: pics/sketches/decomp/decomposition5.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/decomposition5.pdf>
-<pics/sketches/decomp/decomposition6.pdf, id=65, 109.68979pt x 73.3139pt>
+<pics/sketches/decomp/decomposition6.pdf, id=76, 109.68979pt x 73.3139pt>
 File: pics/sketches/decomp/decomposition6.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/decomposition6.pdf>
-Overfull \hbox (23.08199pt too wide) in paragraph at lines 226--227
+Overfull \hbox (23.08199pt too wide) in paragraph at lines 291--292
 \T1/cmr/m/n/12 Bei dem Schnitt des Te-tra-eders mit dem In-ter-face wer-den wei
 -te-re Tetraeder-Integrationszellen
  []
 
-[11 <./pics/sketches/decomp/case1.pdf> <./pics/sketches/decomp/case2.pdf> <./pi
+[13 <./pics/sketches/decomp/case1.pdf> <./pics/sketches/decomp/case2.pdf> <./pi
 cs/sketches/decomp/case3.pdf>]
-<pics/sketches/decomp/cut5.pdf, id=74, 41.4047pt x 69.40932pt>
+<pics/sketches/decomp/cut5.pdf, id=85, 41.4047pt x 69.40932pt>
 File: pics/sketches/decomp/cut5.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/cut5.pdf>
-<pics/sketches/decomp/cut4.pdf, id=76, 41.4047pt x 69.40932pt>
+<pics/sketches/decomp/cut4.pdf, id=87, 41.4047pt x 69.40932pt>
 File: pics/sketches/decomp/cut4.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/cut4.pdf>
-<pics/sketches/decomp/cut3.pdf, id=78, 41.4047pt x 69.40932pt>
+<pics/sketches/decomp/cut3.pdf, id=89, 41.4047pt x 69.40932pt>
 File: pics/sketches/decomp/cut3.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/cut3.pdf>
-<pics/sketches/decomp/cut1.pdf, id=80, 41.4047pt x 69.40932pt>
+<pics/sketches/decomp/cut1.pdf, id=91, 41.4047pt x 69.40932pt>
 File: pics/sketches/decomp/cut1.pdf Graphic file (type pdf)
 
 <use pics/sketches/decomp/cut1.pdf>
-<pics/sketches/decomp/cut2.pdf, id=82, 41.4047pt x 69.40932pt>
+<pics/sketches/decomp/cut2.pdf, id=93, 41.4047pt x 69.40932pt>
 File: pics/sketches/decomp/cut2.pdf Graphic file (type pdf)
 
-<use pics/sketches/decomp/cut2.pdf> [12 <./pics/sketches/decomp/decomposition1.
+<use pics/sketches/decomp/cut2.pdf> [14 <./pics/sketches/decomp/decomposition1.
 pdf> <./pics/sketches/decomp/decomposition5.pdf> <./pics/sketches/decomp/decomp
-osition6.pdf>] [13 <./pics/sketches/decomp/cut5.pdf> <./pics/sketches/decomp/cu
+osition6.pdf>] [15 <./pics/sketches/decomp/cut5.pdf> <./pics/sketches/decomp/cu
 t4.pdf> <./pics/sketches/decomp/cut3.pdf> <./pics/sketches/decomp/cut1.pdf> <./
 pics/sketches/decomp/cut2.pdf>]
 Kapitel 4.
 (./pics/sketches/zalesaks.tex
-<pics/sketches/zalesaks.pdf, id=207, 348.50201pt x 348.50201pt>
+<pics/sketches/zalesaks.pdf, id=217, 348.50201pt x 348.50201pt>
 File: pics/sketches/zalesaks.pdf Graphic file (type pdf)
 
-<use pics/sketches/zalesaks.pdf>) [14
+<use pics/sketches/zalesaks.pdf>) [16
 
  <./pics/sketches/zalesaks.pdf>]
 (./pics/sketches/twophaseflow.tex
-<pics/sketches/twophaseflow.pdf, id=213, 508.52484pt x 396.10484pt>
+<pics/sketches/twophaseflow.pdf, id=223, 508.52484pt x 396.10484pt>
 File: pics/sketches/twophaseflow.pdf Graphic file (type pdf)
 
-<use pics/sketches/twophaseflow.pdf>) [15 <./pics/sketches/twophaseflow.pdf>]
+<use pics/sketches/twophaseflow.pdf>)
+<pics/diagrams/plot.pdf, id=225, 361.35pt x 252.945pt>
+File: pics/diagrams/plot.pdf Graphic file (type pdf)
+
+<use pics/diagrams/plot.pdf>
+<pics/diagrams/plotheight.pdf, id=226, 361.35pt x 252.945pt>
+File: pics/diagrams/plotheight.pdf Graphic file (type pdf)
+
+<use pics/diagrams/plotheight.pdf> [17 <./pics/sketches/twophaseflow.pdf>]
+[18 <./pics/diagrams/plot.pdf> <./pics/diagrams/plotheight.pdf>]
 Kapitel 5.
-[16
+[19
 
 ]
 Anhang A.
-[17
+[20
 
 ]
 Anhang B.
-[18
+[21
 
 ] (./SA2.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 15.
@@ -1138,43 +1194,49 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 
 Package natbib Warning: There were undefined citations.
 
-[19
+[22
 
 
-] (./SA2.aux) ) 
+] (./SA2.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 9926 strings out of 495021
- 138345 string characters out of 1181036
+ 9953 strings out of 495021
+ 138784 string characters out of 1181036
  251590 words of memory out of 3000000
- 12923 multiletter control sequences out of 15000+50000
- 22614 words of font info for 56 fonts, out of 3000000 for 9000
+ 12941 multiletter control sequences out of 15000+50000
+ 24776 words of font info for 63 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 40i,12n,65p,617b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.6
-00pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </ho
-me/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/markus/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/markus/.texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/markus/.texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecrm1000.600pk> </home/markus/.texmf-var/fonts/pk/ljfour/jkn
-appen/ec/ecbx1200.600pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/t
-crm1200.600pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.60
-0pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1728.600pk> </hom
-e/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/markus/.
-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/markus/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/markus/.texmf-var/fonts/pk/l
-jfour/jknappen/ec/ecsx2488.600pk></usr/share/texmf-texlive/fonts/type1/public/a
-msfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
-/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on SA2.pdf (19 pages, 293612 bytes).
+ 40i,12n,65p,641b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/
+markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/markus/.te
+xmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/markus/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/markus/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecrm0700.600pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecrm0800.600pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
+1200.600pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk
+> </home/markus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1440.600pk> </home/m
+arkus/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1728.600pk> </home/markus/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/markus/.texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecsx1200.600pk> </home/markus/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecrm1728.600pk> </home/markus/.texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecsx2488.600pk></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr1
+7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb>
+Output written on SA2.pdf (22 pages, 349400 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
+ 708 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

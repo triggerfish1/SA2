@@ -104,9 +104,9 @@ Index $i$ unterscheidet die Größen des jeweiligen Teilgebietes. Diese Aufteilu
 \(\tens{\sigma}\) ist der Cauchy'sche Spannungstensor und muss durch eine Konstitutivgleichung mit den Feldgrößen verknüpft werden. Im vorliegenden Fall lautet sie
 
 \begin{equation}
-	\tens{\sigma} = -p\tens{I} + 2\mu_i\tens{\epsilon}(\vect{u}),
+	\tens{\sigma} = -p\tens{I} + 2\mu_i\tens{\varepsilon}(\vect{u}),
 \end{equation}
-mit \(\tens{\epsilon}(\vect{u})
+mit \(\tens{\varepsilon}(\vect{u})
 =\frac{1}{2}[\nabla\vect{u} + (\nabla\vect{u})^T]\).
 
 \subsection{Rand- und Anfangswertbedingungen}
@@ -157,14 +157,79 @@ erfüllt werden, sodass an jedem Punkt $\vect{x}$ in $\Omega$ der Wert $\phi(\ve
 Da die Transportgleichung der Level-Set-Funktion diese Eigenschaft nicht aufrechterhält, muss in regelmäßigen Abständen reinitialisiert werden. Dabei wird über eine Funktion der Abstand von jedem Punkt in $\Omega$ der Abstand zum Interface berechnet. Zu beachten ist, dass die Funktion sehr viel Rechenzeit in Anspruch nimmt.
 
 \section{Diskretisierung}
+\subsection{Schwache Form}
+Die FEM\footnote{Finite-Elemente-Methode} lässt sich schematisch mit den Schritten
+\[(s) \iff (w) \approx (G) \iff (M)\]
+darstellen, wobei $(s)$ die starke Formulierung aus Kapitel \ref{sec:grundlagen} bezeichnet, $(w)$ die sogenannte schwache Formulierung, $(G)$ die Galerkin-Approximation (hier ensteht der erste methodische Fehler) und $(M)$ das resultierende Gleichungssystem, das mit Methoden der linearen Algebra gelöst wird.\\
 
+Man kann jede DGL so umstellen, dass die rechte Seite zu null wird. Die linke Seite wird dabei als Residuum $R$ bezeichnet. Diese starke Formulierung erfordert dass das Residuum an jeder Stelle im Rechengebiet $\Omega$ zu null verschwindet. Die gewichtete Residuenformulierung fordert dies, durch Integration über $\Omega$, nur im globalen Sinn:
 
-%
-%
-\subsection{Standard-Galerkin FEM}
+\begin{equation}
+ \int_\Omega R \id\Omega = 0
+\end{equation}
 
-%
-%
+Zusätzlich wird eine Wichtungsfunktion $w$ eingeführt:
+
+\begin{equation}
+ \int_\Omega wR\id\Omega = (w,R) = 0
+\end{equation}
+
+der mittlere Ausdruck stellt dabei eine vereinfachte Schreibweise der linken Seite dar, von der weiter unten wiederholt Gebrauch gemacht wird.\\
+
+Wird in das Residuum die richtige Lösung eingesetzt, muss die linke Seite für jede beliebige Wichtungsfunktion zu null verschwinden. Wenn in der DGL eine räumliche Ableitung einer Feldvariablen vorliegt, so kann diese anschließend durch partielle Integration um eine Ordnung reduziert werden. Dadurch verringern sich die Anforderungen an die Variable.
+
+\subsection{Galerkin-Approximation}
+
+\subsection{Räumliche Diskretisierung der Navier-Stokes-Gleichungen}
+Mit den Lösungsfunktionenräumen 
+\(\mathcal{S}_{\vect{u}}\) 
+für \(\vect{u}\) 
+und \(\mathcal{S}_p\) 
+für \(p\)
+und den Wichtungsfunktionsräumen \(\mathcal{V}_{\vect{u}}\) 
+für \(\vect{v}\) 
+und \(\mathcal{V}_p\) 
+für \(q\) 
+ist eine schwache Form von \ref{} und \ref{} gegeben durch:\\ 
+
+Finde \(\vect{u} \in \mathcal{V}_{\vect{u}}\) 
+und \(p \in \mathcal{S}_p\) 
+so, dass
+
+\begin{align}
+& (\vect{v},\rho\partt{\vect{u}}) + (\vect{v},\rho\vect{u}\cdot\nabla\vect{u})-(\nabla\cdot\vect{v},p) + (\varepsilon(\vect{v}),2\mu\varepsilon(\vect{u})) \nonumber\\
+& \qquad = (\vect{v},\rho\vect{g}) + (\vect{v},\vect{h}_u)_{\Gamma_N} %+ (\vect{v},\gamma\kappa\vect{n}_{\mathrm{int}})_{\Gamma_{\mathrm{int}}} 
+\qquad \forall \vect{v} \in \mathcal{V}_{\vect{u}} \\
+&(q,\nabla\cdot\vect{u}) = 0 \forall q \in \mathcal{V}_p
+\end{align}
+Der Oberflächenspannungsterm, der sich bei der partiellen Integration über das Randintegral ergibt wurde weggelassen, da in den gerechneten Beispielen keine Oberflächenspannung auftritt.\\
+
+Die Galerkin-Formulierung ist für konvektionsdominierte Gleichungen instabil und muss daher stabilisiert werden. Der Druck $p$ und die Geschwindigkeit $\vect{u}$ werden für die Diskretisierung zerlegt in 
+\begin{align}
+ p = p^h + \hat{p} \\
+ \vect{u} = \vect{u}^h + \hat{u}
+\end{align}
+wobei $\hat{p}$ und $\hat{\vect{u}}$ jeweils die Anteile darstellen, die von der Galerkin-Approximation mit dem gegebenen Netz nicht aufgelöst werden. Sie werden approximiert zu
+\begin{align}
+ \hat{p} = -\tau_C\mathcal{R}^h_C \\
+ \hat{\vect{u}} = -\tau_M\mathcal{R}^h_M
+\end{align}
+$\mathcal{R}^h_C$ und $\mathcal{R}^h_M$ sind die jeweiligen diskreten Residuen der Gleichungen \ref{} und \ref{}. Einsetzen dieser Zerlegung in Gleichungen \ref{} und \ref{} ergibt nach partieller Integration einiger Terme laut \cite{rasthofer} die Formulierung: Finde \(\vect{u}^h \in \mathcal{V}^h_{\vect{u}}\) 
+und \(p^h \in \mathcal{S}^h_p\) 
+so, dass
+
+\begin{align}
+ &\left(\vect{v}^h,\rho\partt{\vect{u}^h}\right) + (\vect{v}^h,\rho\vect{u}^h\cdot\nabla\vect{u}^h)-(\nabla\cdot\vect{v}^h,p^h)+(\varepsilon(\vect{v}^h),2\mu\varepsilon(\vect{u}^h))\nonumber\\
+&\qquad+(\nabla\cdot\vect{v}^h,\tau_C\mathcal{R}^h_C)+(\rho\vect{u}^h\cdot\nabla\vect{v}^h,\tau_M\mathcal{R}^h_M)  \nonumber\\
+ &\qquad= (\vect{v}^h,\rho\vect{g})+(\vect{v}^h,\vect{h}_u)_{\Gamma_N} \qquad \forall\vect{v}^h \in \mathcal{V}^h_u,\\
+&(q^h,\nabla\cdot\vect{u}^h)+(\nabla q^h,\tau_M\mathcal{R}^h_M) = 0 \qquad \forall q^h \in \mathcal{V}^h_p.
+\end{align}
+
+Die zusätzlichen Ausdrücke stellen Stabiliserungsterme dar. Diese sind notwendig, da die Galerkin-FEM-Methode, bei denen die Wichtungsfunktionen den Lösungsfunktionen entsprechen, bei konvektionsdominierten Gleichungen Instabilitäten aufweisen. Zudem haben die verwendeten Lösungsfunktionen für Druck und Geschwindigkeit bei der gewählten Vernetzung die gleichen Knoten und die gleiche Polynomordnung. Die sog. inf-sup-Bedingung ist damit nicht erfüllt und daher ist ein PSPG\footnote{Pressure Stabilizing Petrov-Galerkin}-Stabilisierungsterm notwendig, der sich ebenfalls bei der Mehrskalen-Methode ergibt.
+
+\subsection{Level-Set-Gleichung}
+Mit geeignetem Lösungs- und Wichtungsfunktionenraum $\mathcal{S}_\phi$ und $\mathcal{V}_\phi$ für $\phi$ beziehungsweise $w$ lässt sich eine schwache Form schreiben als: Finde $\phi \in \mathcal{S}_\phi$ so, dass
+
 \subsection{eXtended Finite Element Method}
 \label{sec:xfem}
 \subsection{Zeitintegration}
@@ -284,8 +349,8 @@ Der Schnitt mit dem Interface ergibt zwei Dreiecksprismen, die wiederum in jewei
 
 \section{Dammbruch}
 \subsection{Problemstellung}
-Im Anfangszustand befindet sich eine Wassersäule($\Omega^+$) mit den Maßen $0,146\times0,292$ am linken Rand des sonst luftgefüllten($\Omega^-$) Gebietes. Das Gebiet hat die Abmaße $0,584\times0,292$. Die Materialparameter lauten: $\rho^+=\unit{1000}{\kilogram\per\cubic\meter}$, $\rho^-=\unit{1}{\kilogram\per\cubic\meter}$, $\mu^+ = \unit{$10^{-3}$}{\kilogram\per\meter\per\second}$ und $\mu^-= \unit{$10^{-5}$}{\kilogram\per\meter\per\second}$. Der Volumenkraftsvektor ist $\vect{f} = (0, \unit{-9,81}{\meter\per\squaren\second}, 0)^T$ Das verwendete Netz ist %TODO Netz.
-An allen Wänden gelten Slip\footnote{Alle bis auf die wandparallelen Geschwindigkeitskomponenten werden zu null gesetzt.}-Randbedingungen.
+Im Anfangszustand befindet sich eine Wassersäule($\Omega^+$) mit den Maßen $0{,}146\times0{,}292$ am linken Rand des sonst luftgefüllten($\Omega^-$) Gebietes. Das Gebiet hat die Abmaße $0{,}584\times0{,}292$. Die Materialparameter lauten: $\rho^+=\unit{1000}{\kilogram\per\cubic\meter}$, $\rho^-=\unit{1}{\kilogram\per\cubic\meter}$, $\mu^+ = \unit{$10^{-3}$}{\kilogram\per\meter\per\second}$ und $\mu^-= \unit{$10^{-5}$}{\kilogram\per\meter\per\second}$. Der Volumenkraftsvektor ist $\vect{f} = (0, \unit{-9,81}{\meter\per\squaren\second}, 0)^T$ Das verwendete Netz ist %TODO Netz.
+An allen Wänden gelten Slip\footnote{Alle bis auf die wandparallelen Geschwindigkeitskomponenten werden zu null gesetzt.}-Randbedingungen. Der Zeitbereich $t = [0..0{,}25s]$ ist in 1000 Zeitschritte unterteilt.
 
 
 \def\svgwidth{0.6\textwidth}
@@ -295,7 +360,15 @@ An allen Wänden gelten Slip\footnote{Alle bis auf die wandparallelen Geschwindi
 \end{figure}
 
 \subsection{Ergebnisse}
+\begin{figure}
+ \includegraphics[width=0.7\textwidth]{pics/diagrams/plot}
+\caption{}
+\end{figure} 
 
+\begin{figure}
+ \includegraphics[width=0.7\textwidth]{pics/diagrams/plotheight}
+\caption{}
+\end{figure} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

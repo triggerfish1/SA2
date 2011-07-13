@@ -28,80 +28,86 @@
 \newlabel{sec:twophaseflow}{{2.1.4}{8}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Level-Set-Gleichung}{8}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Diskretisierung}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Standard-Galerkin FEM}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}eXtended Finite Element Method}{9}}
-\newlabel{sec:xfem}{{2.3.2}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Zeitintegration}{9}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Schnittalgorithmus}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Schwache Form}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Galerkin-Approximation}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}R\IeC {\"a}umliche Diskretisierung der Navier-Stokes-Gleichungen}{10}}
+\citation{rasthofer}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Level-Set-Gleichung}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}eXtended Finite Element Method}{11}}
+\newlabel{sec:xfem}{{2.3.5}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.6}Zeitintegration}{11}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Schnittalgorithmus}{12}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Vorhandene Algorithmen}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Tetgen}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Hexahedra}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Implementierter Algorithmus}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Zerlegung in Tetraeder}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Zerlegungsm\IeC {\"o}glichkeiten\relax }}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Fall 1}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Fall 2}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Fall 3}}}{11}}
-\newlabel{fig:cases}{{3.1}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Schnittf\IeC {\"a}lle}{11}}
-\@writefile{toc}{\contentsline {paragraph}{kein Schnittpunkt (Abbildung \ref  {fig:cut0})}{11}}
-\@writefile{toc}{\contentsline {paragraph}{1 Schnittpunkt (Abbildung \ref  {fig:cut1})}{11}}
-\@writefile{toc}{\contentsline {paragraph}{2 Schnittpunkte (Abbildung \ref  {fig:cut2})}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Vorhandene Algorithmen}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Tetgen}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Hexahedra}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Implementierter Algorithmus}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Zerlegung in Tetraeder}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Zerlegungsm\IeC {\"o}glichkeiten\relax }}{13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Fall 1}}}{13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Fall 2}}}{13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Fall 3}}}{13}}
+\newlabel{fig:cases}{{3.1}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Schnittf\IeC {\"a}lle}{13}}
+\@writefile{toc}{\contentsline {paragraph}{kein Schnittpunkt (Abbildung \ref  {fig:cut0})}{13}}
+\@writefile{toc}{\contentsline {paragraph}{1 Schnittpunkt (Abbildung \ref  {fig:cut1})}{13}}
+\@writefile{toc}{\contentsline {paragraph}{2 Schnittpunkte (Abbildung \ref  {fig:cut2})}{13}}
 \caption@newlabel{ragged2e}{}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Zerlegung in sechs Tetraeder\relax }}{12}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Zerlegung in zwei Prismen}}}{12}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Hinteres Prisma in Tetraeder und Pyramide zerlegt}}}{12}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Pyramide in weitere zwei Tetraeder zerlegt}}}{12}}
-\newlabel{fig:decomp}{{3.2}{12}}
-\@writefile{toc}{\contentsline {paragraph}{3 Schnittpunkte (Abbildung \ref  {fig:cut3})}{12}}
-\@writefile{toc}{\contentsline {paragraph}{4 Schnittpunkte (Abbildung \ref  {fig:cut4})}{12}}
-\newlabel{fig:cut0}{{3.3a}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Zerlegung in sechs Tetraeder\relax }}{14}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Zerlegung in zwei Prismen}}}{14}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Hinteres Prisma in Tetraeder und Pyramide zerlegt}}}{14}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Pyramide in weitere zwei Tetraeder zerlegt}}}{14}}
+\newlabel{fig:decomp}{{3.2}{14}}
+\@writefile{toc}{\contentsline {paragraph}{3 Schnittpunkte (Abbildung \ref  {fig:cut3})}{14}}
+\@writefile{toc}{\contentsline {paragraph}{4 Schnittpunkte (Abbildung \ref  {fig:cut4})}{14}}
+\newlabel{fig:cut0}{{3.3a}{15}}
 \newlabel{sub@fig:cut0}{{(a)}{a}}
-\newlabel{fig:cut1}{{3.3b}{13}}
+\newlabel{fig:cut1}{{3.3b}{15}}
 \newlabel{sub@fig:cut1}{{(b)}{b}}
-\newlabel{fig:cut2}{{3.3c}{13}}
+\newlabel{fig:cut2}{{3.3c}{15}}
 \newlabel{sub@fig:cut2}{{(c)}{c}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Schnittf\IeC {\"a}lle I\relax }}{13}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {kein Schnittpunkt}}}{13}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {1 Schnittpunkt}}}{13}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {2 Schnittpunkte}}}{13}}
-\newlabel{fig:cuts1}{{3.3}{13}}
-\newlabel{fig:cut3}{{3.4a}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Schnittf\IeC {\"a}lle I\relax }}{15}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {kein Schnittpunkt}}}{15}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {1 Schnittpunkt}}}{15}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {2 Schnittpunkte}}}{15}}
+\newlabel{fig:cuts1}{{3.3}{15}}
+\newlabel{fig:cut3}{{3.4a}{15}}
 \newlabel{sub@fig:cut3}{{(a)}{a}}
-\newlabel{fig:cut4}{{3.4b}{13}}
+\newlabel{fig:cut4}{{3.4b}{15}}
 \newlabel{sub@fig:cut4}{{(b)}{b}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Schnittf\IeC {\"a}lle II\relax }}{13}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {3 Schnittpunkte}}}{13}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {4 Schnittpunkte}}}{13}}
-\newlabel{fig:cuts2}{{3.4}{13}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Ergebnisse}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Schnittf\IeC {\"a}lle II\relax }}{15}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {3 Schnittpunkte}}}{15}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {4 Schnittpunkte}}}{15}}
+\newlabel{fig:cuts2}{{3.4}{15}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Ergebnisse}{16}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Zalesaks-Disk}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Problemstellung}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Skizze des Zalesaks-Disk-Problems\relax }}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Ergebnisse}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2.1}Massenverlust}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2.2}Geometrieerhaltung}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Aufsteigende Blase}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Rayleigh-Taylor-Instabilit\IeC {\"a}t}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Dammbruch}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Problemstellung}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Skizze des Dammbruch-Problems\relax }}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Ergebnisse}{15}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Ausblick}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Zalesaks-Disk}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Problemstellung}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Skizze des Zalesaks-Disk-Problems\relax }}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Ergebnisse}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2.1}Massenverlust}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2.2}Geometrieerhaltung}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Aufsteigende Blase}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Rayleigh-Taylor-Instabilit\IeC {\"a}t}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Dammbruch}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Problemstellung}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Skizze des Dammbruch-Problems\relax }}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Ergebnisse}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces \relax }}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces \relax }}{18}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Ausblick}{19}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Code}{17}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Code}{20}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Bilder}{18}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Bilder}{21}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
@@ -109,5 +115,5 @@
 \bibdata{books}
 \bibcite{Fries}{{1}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@writefile{toc}{\contentsline {chapter}{Literaturverzeichnis}{19}}
+\@writefile{toc}{\contentsline {chapter}{Literaturverzeichnis}{22}}
 \global\@altsecnumformattrue

@@ -9,33 +9,36 @@
 \contentsline {subsection}{\numberline {2.1.4}Besonderheiten der Zweiphasenstr\IeC {\"o}mung}{8}
 \contentsline {section}{\numberline {2.2}Level-Set-Gleichung}{8}
 \contentsline {section}{\numberline {2.3}Diskretisierung}{9}
-\contentsline {subsection}{\numberline {2.3.1}Standard-Galerkin FEM}{9}
-\contentsline {subsection}{\numberline {2.3.2}eXtended Finite Element Method}{9}
-\contentsline {subsection}{\numberline {2.3.3}Zeitintegration}{9}
-\contentsline {chapter}{\numberline {3}Schnittalgorithmus}{10}
-\contentsline {section}{\numberline {3.1}Vorhandene Algorithmen}{10}
-\contentsline {subsection}{\numberline {3.1.1}Tetgen}{10}
-\contentsline {subsection}{\numberline {3.1.2}Hexahedra}{10}
-\contentsline {section}{\numberline {3.2}Implementierter Algorithmus}{10}
-\contentsline {subsection}{\numberline {3.2.1}Zerlegung in Tetraeder}{10}
-\contentsline {subsection}{\numberline {3.2.2}Schnittf\IeC {\"a}lle}{11}
-\contentsline {paragraph}{kein Schnittpunkt (Abbildung \ref {fig:cut0})}{11}
-\contentsline {paragraph}{1 Schnittpunkt (Abbildung \ref {fig:cut1})}{11}
-\contentsline {paragraph}{2 Schnittpunkte (Abbildung \ref {fig:cut2})}{11}
-\contentsline {paragraph}{3 Schnittpunkte (Abbildung \ref {fig:cut3})}{12}
-\contentsline {paragraph}{4 Schnittpunkte (Abbildung \ref {fig:cut4})}{12}
-\contentsline {chapter}{\numberline {4}Ergebnisse}{14}
-\contentsline {section}{\numberline {4.1}Zalesaks-Disk}{14}
-\contentsline {subsection}{\numberline {4.1.1}Problemstellung}{14}
-\contentsline {subsection}{\numberline {4.1.2}Ergebnisse}{14}
-\contentsline {subsubsection}{\numberline {4.1.2.1}Massenverlust}{14}
-\contentsline {subsubsection}{\numberline {4.1.2.2}Geometrieerhaltung}{14}
-\contentsline {section}{\numberline {4.2}Aufsteigende Blase}{14}
-\contentsline {section}{\numberline {4.3}Rayleigh-Taylor-Instabilit\IeC {\"a}t}{14}
-\contentsline {section}{\numberline {4.4}Dammbruch}{14}
-\contentsline {subsection}{\numberline {4.4.1}Problemstellung}{14}
-\contentsline {subsection}{\numberline {4.4.2}Ergebnisse}{15}
-\contentsline {chapter}{\numberline {5}Ausblick}{16}
-\contentsline {chapter}{\numberline {A}Code}{17}
-\contentsline {chapter}{\numberline {B}Bilder}{18}
-\contentsline {chapter}{Literaturverzeichnis}{19}
+\contentsline {subsection}{\numberline {2.3.1}Schwache Form}{9}
+\contentsline {subsection}{\numberline {2.3.2}Galerkin-Approximation}{10}
+\contentsline {subsection}{\numberline {2.3.3}R\IeC {\"a}umliche Diskretisierung der Navier-Stokes-Gleichungen}{10}
+\contentsline {subsection}{\numberline {2.3.4}Level-Set-Gleichung}{11}
+\contentsline {subsection}{\numberline {2.3.5}eXtended Finite Element Method}{11}
+\contentsline {subsection}{\numberline {2.3.6}Zeitintegration}{11}
+\contentsline {chapter}{\numberline {3}Schnittalgorithmus}{12}
+\contentsline {section}{\numberline {3.1}Vorhandene Algorithmen}{12}
+\contentsline {subsection}{\numberline {3.1.1}Tetgen}{12}
+\contentsline {subsection}{\numberline {3.1.2}Hexahedra}{12}
+\contentsline {section}{\numberline {3.2}Implementierter Algorithmus}{12}
+\contentsline {subsection}{\numberline {3.2.1}Zerlegung in Tetraeder}{12}
+\contentsline {subsection}{\numberline {3.2.2}Schnittf\IeC {\"a}lle}{13}
+\contentsline {paragraph}{kein Schnittpunkt (Abbildung \ref {fig:cut0})}{13}
+\contentsline {paragraph}{1 Schnittpunkt (Abbildung \ref {fig:cut1})}{13}
+\contentsline {paragraph}{2 Schnittpunkte (Abbildung \ref {fig:cut2})}{13}
+\contentsline {paragraph}{3 Schnittpunkte (Abbildung \ref {fig:cut3})}{14}
+\contentsline {paragraph}{4 Schnittpunkte (Abbildung \ref {fig:cut4})}{14}
+\contentsline {chapter}{\numberline {4}Ergebnisse}{16}
+\contentsline {section}{\numberline {4.1}Zalesaks-Disk}{16}
+\contentsline {subsection}{\numberline {4.1.1}Problemstellung}{16}
+\contentsline {subsection}{\numberline {4.1.2}Ergebnisse}{16}
+\contentsline {subsubsection}{\numberline {4.1.2.1}Massenverlust}{16}
+\contentsline {subsubsection}{\numberline {4.1.2.2}Geometrieerhaltung}{16}
+\contentsline {section}{\numberline {4.2}Aufsteigende Blase}{16}
+\contentsline {section}{\numberline {4.3}Rayleigh-Taylor-Instabilit\IeC {\"a}t}{16}
+\contentsline {section}{\numberline {4.4}Dammbruch}{16}
+\contentsline {subsection}{\numberline {4.4.1}Problemstellung}{16}
+\contentsline {subsection}{\numberline {4.4.2}Ergebnisse}{17}
+\contentsline {chapter}{\numberline {5}Ausblick}{19}
+\contentsline {chapter}{\numberline {A}Code}{20}
+\contentsline {chapter}{\numberline {B}Bilder}{21}
+\contentsline {chapter}{Literaturverzeichnis}{22}

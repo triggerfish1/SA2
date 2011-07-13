@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.7.4)  7 JUL 2011 20:31
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.7.4)  12 JUL 2011 15:42
 entering extended mode
  %&-line parsing enabled.
 **settings.tex
@@ -824,8 +824,7 @@ LaTeX Info: Redefining \@qsk on input line 576.
 Option `thinqspace' provided!
 Option `textstyle' provided!
 Option `squaren' provided!
-) (/usr/share/texmf-texlive/tex/latex/ziffer/ziffer.sty)
-(/usr/share/texmf-texlive/tex/latex/babelbib/babelbib.sty
+) (/usr/share/texmf-texlive/tex/latex/babelbib/babelbib.sty
 Package: babelbib 2009/10/10 v1.29 babelbib: multilingual bibliographies (HH)
 ))
 ! Emergency stop.
@@ -835,10 +834,10 @@ Package: babelbib 2009/10/10 v1.29 babelbib: multilingual bibliographies (HH)
 
  
 Here is how much of TeX's memory you used:
- 8894 strings out of 495021
- 121653 string characters out of 1181036
- 244801 words of memory out of 3000000
- 11984 multiletter control sequences out of 15000+50000
+ 8867 strings out of 495021
+ 121182 string characters out of 1181036
+ 244570 words of memory out of 3000000
+ 11961 multiletter control sequences out of 15000+50000
  4702 words of font info for 16 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  38i,1n,65p,240b,220s stack positions out of 5000i,500n,10000p,200000b,50000s

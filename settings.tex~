@@ -28,7 +28,7 @@
 \usepackage{url}
 \usepackage{textcomp}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
-\usepackage{ziffer}
+
 
 \usepackage[fixlanguage]{babelbib}
 \selectbiblanguage{german}
